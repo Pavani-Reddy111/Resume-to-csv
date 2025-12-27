@@ -3,6 +3,7 @@ import zipfile
 import os
 import tempfile
 import pandas as pd
+from dotenv import load_dotenv
 from langchain_google_genai.chat_models import ChatGoogleGenerativeAI
 
 import pdfplumber
