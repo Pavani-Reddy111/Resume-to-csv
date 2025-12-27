@@ -1,8 +1,8 @@
 streamlit
 langchain
 langchain-google-genai
+google-generativeai
 python-dotenv
 pandas
 pdfplumber
 python-docx
-
