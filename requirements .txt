@@ -5,3 +5,4 @@ langchain
 langchain-google-genai
 pdfplumber
 python-docx
+google-generativeai
