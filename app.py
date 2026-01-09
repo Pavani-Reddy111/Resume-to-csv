@@ -3,7 +3,7 @@ import zipfile
 import os
 import tempfile
 import pandas as pd
-from langchain_google_genai.chat_models import ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 import pdfplumber
 from docx import Document
