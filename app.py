@@ -10,6 +10,7 @@ import pdfplumber
 from docx import Document
 
 # ------------------ BASIC SETUP ------------------
+from dotenv import load_dotenv
 load_dotenv()
 
 st.set_page_config(
