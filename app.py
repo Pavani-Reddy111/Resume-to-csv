@@ -10,8 +10,11 @@ import pdfplumber
 from docx import Document
 
 # ------------------ BASIC SETUP ------------------
-from dotenv import load_dotenv
 load_dotenv()
+API_KEY = os.getenv("GOOGLE_API_KEY")
+if not API_KEY:
+    st.error("GOOGLE_API_KEY not found. Please add it to .env file.")
+    st.stop()
 
 st.set_page_config(
     page_title="AI-Powered Resume Analyzer & CSV Generator",
