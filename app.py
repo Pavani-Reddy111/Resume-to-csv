@@ -17,14 +17,10 @@ except ModuleNotFoundError:
     pass  # dotenv not available on Streamlit Cloud
 
 # Get API key from environment or Streamlit Secrets
-API_KEY = os.getenv("GOOGLE_API_KEY")
+API_KEY = os.getenv("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
 
 if not API_KEY:
-    st.error(
-        "GOOGLE_API_KEY not found.\n\n"
-        "• For local use: add it to a .env file\n"
-        "• For Streamlit Cloud: add it to Secrets"
-    )
+    st.error("GOOGLE_API_KEY not found in Streamlit Secrets")
     st.stop()
 
 st.set_page_config(
