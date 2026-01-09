@@ -3,17 +3,28 @@ import zipfile
 import os
 import tempfile
 import pandas as pd
-from dotenv import load_dotenv
 from langchain_google_genai.chat_models import ChatGoogleGenerativeAI
 
 import pdfplumber
 from docx import Document
 
-# ------------------ BASIC SETUP ------------------
-load_dotenv()
+# ------------------ BASIC SETUP ----------------
+# Try loading .env for local development
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ModuleNotFoundError:
+    pass  # dotenv not available on Streamlit Cloud
+
+# Get API key from environment or Streamlit Secrets
 API_KEY = os.getenv("GOOGLE_API_KEY")
+
 if not API_KEY:
-    st.error("GOOGLE_API_KEY not found. Please add it to .env file.")
+    st.error(
+        "GOOGLE_API_KEY not found.\n\n"
+        "• For local use: add it to a .env file\n"
+        "• For Streamlit Cloud: add it to Secrets"
+    )
     st.stop()
 
 st.set_page_config(
